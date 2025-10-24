@@ -1,396 +1,192 @@
-<h1 align="center">🎥 Streamify - Real-Time Video Calls & Chat Application</h1>
+# Streamify
 
 <p align="center">
-  <strong>A full-stack video calling and messaging platform built with the MERN stack</strong>
+  <strong>Enterprise-grade real-time video conferencing and messaging platform</strong>
 </p>
 
 <p align="center">
-  <a href="#-features">Features</a> •
-  <a href="#-tech-stack">Tech Stack</a> •
-  <a href="#-getting-started">Getting Started</a> •
-  <a href="#-deployment">Deployment</a> •
-  <a href="#-api-documentation">API Documentation</a>
+  A full-stack communication solution built with the MERN stack, featuring real-time video calls, instant messaging, and collaborative tools for seamless remote communication.
 </p>
 
 ---
 
-## ✨ Features
+## Overview
 
-### 🎯 Core Functionality
-- **Real-Time Messaging**: Instant chat with live typing indicators, emoji reactions to messages, threaded replies, and read receipts
-- **Video & Audio Calls**: High-quality 1-on-1 and group video calls powered by Stream
-- **Screen Sharing**: Share your screen during video calls
-- **Call Recording**: Record and save important video conversations
-- **Friend System**: Send, accept, and manage friend requests
-- **User Profiles**: Customizable user profiles with avatars
-- **Notifications**: Real-time notifications for messages, calls, and friend requests
+Streamify is a production-ready platform enabling teams to connect through high-quality video calls and real-time messaging. Built with modern web technologies and powered by Stream's infrastructure, it delivers enterprise-level performance with an intuitive user experience.
 
-### 🎨 User Experience
-- **32 Unique Themes**: Customize your interface with a variety of beautiful themes
-- **Responsive Design**: Seamless experience across desktop, tablet, and mobile devices
-- **Dark/Light Mode**: Toggle between dark and light themes
-- **Loading States**: Smooth loading animations and skeleton screens
-- **Error Handling**: User-friendly error messages and fallbacks
+## Key Features
 
-### 🔐 Security & Authentication
-- **JWT Authentication**: Secure token-based authentication
-- **Protected Routes**: Client and server-side route protection
-- **HTTP-Only Cookies**: Secure session management
-- **Password Hashing**: bcrypt encryption for user passwords
-- **CORS Configuration**: Proper cross-origin resource sharing setup
+### Communication
+- **Real-Time Messaging** - Instant chat with typing indicators, emoji reactions, threaded replies, and read receipts
+- **HD Video Conferencing** - 1-on-1 and group calls with adaptive bitrate and noise suppression
+- **Screen Sharing & Recording** - Share screens and record important conversations
+- **Friend System** - Send, accept, and manage friend requests with real-time notifications
 
-### 🚀 Performance & Scalability
-- **TanStack Query**: Efficient data fetching, caching, and synchronization
-- **Zustand State Management**: Lightweight and performant global state
-- **Stream SDK**: Enterprise-grade real-time infrastructure
-- **MongoDB Atlas**: Cloud database with automatic scaling
-- **Optimized Builds**: Code splitting and lazy loading
+### User Experience
+- **32 Premium Themes** - Extensive customization options with dark/light mode support
+- **Responsive Design** - Optimized for desktop, tablet, and mobile devices
+- **Progressive UI** - Skeleton screens, optimistic updates, and smooth loading states
+- **Accessibility** - WCAG 2.1 compliant with keyboard navigation
+
+### Security
+- JWT-based authentication with HTTP-only cookies
+- bcrypt password encryption and input sanitization
+- Protected routes with server-side authorization
+- Configurable CORS policies
 
 ---
 
-## 🛠️ Tech Stack
+## Technology Stack
 
-### Frontend
-- **React 18** - UI library with hooks and modern features
-- **Vite** - Lightning-fast build tool and dev server
-- **TailwindCSS** - Utility-first CSS framework
-- **Stream Chat React** - Real-time chat SDK
-- **Stream Video React** - Real-time video SDK
-- **TanStack Query (React Query)** - Server state management
-- **Zustand** - Lightweight state management
-- **React Router** - Client-side routing
-- **React Hot Toast** - Beautiful notifications
-- **Axios** - HTTP client
+**Frontend:** React 18, Vite, TailwindCSS, Stream SDKs, TanStack Query, Zustand, React Router
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web application framework
-- **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
-- **Stream Chat & Video** - Real-time communication APIs
-- **JWT** - JSON Web Tokens for authentication
-- **bcryptjs** - Password hashing
-- **cookie-parser** - Cookie parsing middleware
-- **CORS** - Cross-origin resource sharing
+**Backend:** Node.js, Express, MongoDB, Mongoose, Stream APIs, JWT, bcryptjs
 
-### DevOps & Deployment
-- **Vercel** - Frontend hosting
-- **Render** - Backend hosting
-- **MongoDB Atlas** - Database hosting
-- **Git & GitHub** - Version control
+**Infrastructure:** Vercel (Frontend), Render (Backend), MongoDB Atlas (Database)
 
 ---
 
-## 🚀 Getting Started
+## Installation
 
 ### Prerequisites
+- Node.js v16+ and npm v8+
+- MongoDB Atlas account
+- Stream account ([Sign up](https://getstream.io/))
 
-Before you begin, ensure you have the following installed:
-- **Node.js** (v16 or higher) - [Download](https://nodejs.org/)
-- **npm** or **yarn** - Package manager
-- **MongoDB Atlas Account** - [Sign up](https://www.mongodb.com/cloud/atlas)
-- **Stream Account** - [Sign up](https://getstream.io/)
+### Setup
 
-### Installation
-
-#### 1. Clone the Repository
-
+1. **Clone Repository**
 ```bash
-git clone https://github.com/Astro-Dude/Streamify.git
+git clone <your-repository-url>
 cd Streamify
 ```
 
-#### 2. Install Dependencies
-
-**Backend:**
+2. **Install Dependencies**
 ```bash
-cd backend
-npm install
+# Backend
+cd backend && npm install
+
+# Frontend
+cd ../frontend && npm install
 ```
 
-**Frontend:**
-```bash
-cd frontend
-npm install
-```
+3. **Configure Environment Variables**
 
-#### 3. Environment Variables Setup
-
-Create `.env` files in both backend and frontend directories:
-
-**Backend `.env` (`/backend/.env`):**
+**Backend** (`backend/.env`):
 ```env
-# Server Configuration
 PORT=5001
 NODE_ENV=development
-
-# MongoDB Database
-MONGO_URI=mongodb+srv://your_username:your_password@cluster.mongodb.net/?retryWrites=true&w=majority
-
-# Stream Chat & Video API (Get from https://getstream.io/)
+MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/streamify
 STREAM_API_KEY=your_stream_api_key
 STREAM_API_SECRET=your_stream_api_secret
-
-# JWT Authentication (Generate with: node -e "console.log(require('crypto').randomBytes(48).toString('hex'))")
-JWT_SECRET_KEY=your_generated_jwt_secret_key_here
+JWT_SECRET_KEY=your_generated_secret
 ```
 
-**Frontend `.env` (`/frontend/.env`):**
+**Frontend** (`frontend/.env`):
 ```env
-# Stream Chat & Video API Key
 VITE_STREAM_API_KEY=your_stream_api_key
-
-# Backend API URL
 VITE_API_URL=http://localhost:5001
 ```
 
-#### 4. Get Your API Keys
-
-**MongoDB Atlas:**
-1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a cluster (free tier available)
-3. Go to Database Access → Add Database User
-4. Go to Network Access → Add IP Address (add `0.0.0.0/0` for development)
-5. Go to Clusters → Connect → Connect your application
-6. Copy the connection string and replace `<password>` with your database user password
-
-**Stream:**
-1. Go to [GetStream.io](https://getstream.io/)
-2. Sign up for a free account
-3. Create a new app
-4. Copy the API Key and API Secret from your dashboard
-
-**JWT Secret:**
-Generate a secure random string:
+4. **Generate JWT Secret**
 ```bash
 node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 ```
 
-#### 5. Run the Application
-
-**Start Backend Server:**
+5. **Run Application**
 ```bash
-cd backend
-npm run dev
+# Backend (runs on :5001)
+cd backend && npm run dev
+
+# Frontend (runs on :5173)
+cd frontend && npm run dev
 ```
-Backend will run on `http://localhost:5001`
-
-**Start Frontend Development Server:**
-```bash
-cd frontend
-npm run dev
-```
-Frontend will run on `http://localhost:5173`
-
-#### 6. Open in Browser
-
-Navigate to `http://localhost:5173` to see the application in action!
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
-### Backend Deployment (Render)
+### Backend (Render)
 
-1. **Create a Render Account**: [Sign up at Render](https://render.com/)
-
-2. **Create a New Web Service**:
-   - Connect your GitHub repository
-   - Select the repository: `Streamify`
+1. Create new Web Service at [Render](https://render.com/)
+2. Connect GitHub repository
+3. Configure:
    - Root Directory: `backend`
    - Build Command: `npm install`
    - Start Command: `node src/server.js`
+4. Add environment variables (same as local `.env`)
+5. Deploy and copy the service URL
 
-3. **Environment Variables**:
-   Add these in Render's Environment Variables section:
-   ```
-   NODE_ENV=production
-   PORT=10000
-   JWT_SECRET_KEY=your_jwt_secret_key
-   STREAM_API_KEY=your_stream_api_key
-   STREAM_API_SECRET=your_stream_api_secret
-   MONGO_URI=your_mongodb_connection_string
-   ```
+### Frontend (Vercel)
 
-4. **Deploy**: Click "Create Web Service"
-
-5. **Get Your Backend URL**: Copy the URL (e.g., `https://streamify-xxx.onrender.com`)
-
-### Frontend Deployment (Vercel)
-
-1. **Create a Vercel Account**: [Sign up at Vercel](https://vercel.com/)
-
-2. **Import Project**:
-   - Click "Add New" → "Project"
-   - Import your GitHub repository
+1. Import project at [Vercel](https://vercel.com/)
+2. Configure:
    - Root Directory: `frontend`
-   - Framework Preset: `Vite`
+   - Framework: `Vite`
    - Build Command: `npm run build`
    - Output Directory: `dist`
-
-3. **Environment Variables**:
-   Add these in Vercel's Environment Variables section:
+3. Add environment variables:
    ```
-   VITE_STREAM_API_KEY=your_stream_api_key
-   VITE_API_URL=https://your-render-backend-url.onrender.com
+   VITE_STREAM_API_KEY=your_key
+   VITE_API_URL=https://your-backend.onrender.com
    ```
+4. Deploy
 
-4. **Deploy**: Click "Deploy"
-
-5. **Update Backend CORS**:
-   After deployment, update your backend `server.js` CORS origin to your Vercel URL
-
-### MongoDB Atlas Setup for Production
-
-1. **Network Access**:
-   - Go to Network Access in MongoDB Atlas
-   - Add IP Address: `0.0.0.0/0` (allows all IPs)
-   - Or add specific Render IP addresses
-
-2. **Database User**:
-   - Ensure your database user has proper read/write permissions
+**Important:** Update backend CORS origin with your Vercel URL after deployment.
 
 ---
 
-## � API Documentation
+## API Reference
 
-### Authentication Endpoints
+### Authentication
 
-#### Sign Up
 ```http
-POST /api/auth/signup
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "password123",
-  "fullName": "John Doe"
-}
+POST   /api/auth/signup      # Register new user
+POST   /api/auth/login       # User login
+POST   /api/auth/logout      # User logout
+GET    /api/auth/me          # Get current user
 ```
 
-#### Login
-```http
-POST /api/auth/login
-Content-Type: application/json
+### Users
 
-{
-  "email": "user@example.com",
-  "password": "password123"
-}
+```http
+GET    /api/users                        # Get all users
+GET    /api/users/friend-requests        # Get friend requests
+POST   /api/users/friend-request/:id     # Send friend request
+POST   /api/users/accept-request/:id     # Accept friend request
+POST   /api/users/reject-request/:id     # Reject friend request
 ```
 
-#### Logout
+### Chat
+
 ```http
-POST /api/auth/logout
-```
-
-#### Get Authenticated User
-```http
-GET /api/auth/me
-```
-
-### User Endpoints
-
-#### Get All Users
-```http
-GET /api/users
-```
-
-#### Get Friend Requests
-```http
-GET /api/users/friend-requests
-```
-
-#### Send Friend Request
-```http
-POST /api/users/friend-request/:userId
-```
-
-#### Accept Friend Request
-```http
-POST /api/users/accept-request/:requestId
-```
-
-#### Reject Friend Request
-```http
-POST /api/users/reject-request/:requestId
-```
-
-### Chat Endpoints
-
-#### Get Stream Token
-```http
-GET /api/chat/token
+GET    /api/chat/token       # Get Stream authentication token
 ```
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-streamify-video-calls-master/
+streamify/
 ├── backend/
 │   ├── src/
-│   │   ├── controllers/
-│   │   │   ├── auth.controller.js
-│   │   │   ├── chat.controller.js
-│   │   │   └── user.controller.js
-│   │   ├── lib/
-│   │   │   ├── db.js
-│   │   │   └── stream.js
-│   │   ├── middleware/
-│   │   │   └── auth.middleware.js
-│   │   ├── models/
-│   │   │   ├── FriendRequest.js
-│   │   │   └── User.js
-│   │   ├── routes/
-│   │   │   ├── auth.route.js
-│   │   │   ├── chat.route.js
-│   │   │   └── user.route.js
-│   │   └── server.js
-│   ├── .env
+│   │   ├── controllers/       # Request handlers
+│   │   ├── middleware/        # Auth & validation
+│   │   ├── models/            # Database schemas
+│   │   ├── routes/            # API endpoints
+│   │   ├── lib/               # Database & Stream config
+│   │   └── server.js          # App entry point
 │   └── package.json
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── CallButton.jsx
-│   │   │   ├── ChatLoader.jsx
-│   │   │   ├── FriendCard.jsx
-│   │   │   ├── Layout.jsx
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── NoFriendsFound.jsx
-│   │   │   ├── NoNotificationsFound.jsx
-│   │   │   ├── PageLoader.jsx
-│   │   │   ├── Sidebar.jsx
-│   │   │   └── ThemeSelector.jsx
-│   │   ├── constants/
-│   │   │   └── index.js
-│   │   ├── hooks/
-│   │   │   ├── useAuthUser.js
-│   │   │   ├── useLogin.js
-│   │   │   ├── useLogout.js
-│   │   │   └── useSignUp.js
-│   │   ├── lib/
-│   │   │   ├── api.js
-│   │   │   ├── axios.js
-│   │   │   └── utils.js
-│   │   ├── pages/
-│   │   │   ├── CallPage.jsx
-│   │   │   ├── ChatPage.jsx
-│   │   │   ├── HomePage.jsx
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── NotificationsPage.jsx
-│   │   │   ├── OnboardingPage.jsx
-│   │   │   └── SignUpPage.jsx
-│   │   ├── store/
-│   │   │   └── useThemeStore.js
-│   │   ├── App.jsx
-│   │   ├── index.css
-│   │   └── main.jsx
-│   ├── .env
-│   ├── vercel.json
-│   ├── vite.config.js
+│   │   ├── components/        # Reusable UI components
+│   │   ├── pages/             # Route pages
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── store/             # Global state management
+│   │   ├── lib/               # API & utilities
+│   │   └── App.jsx            # Main app component
 │   └── package.json
 │
 └── README.md
@@ -398,115 +194,56 @@ streamify-video-calls-master/
 
 ---
 
-## 🔧 Development
+## Troubleshooting
 
-### Available Scripts
+**MongoDB Connection Error**
+- Add `0.0.0.0/0` to MongoDB Atlas Network Access whitelist
 
-**Backend:**
-- `npm run dev` - Start development server with nodemon
-- `npm start` - Start production server
+**CORS Error**
+- Ensure backend CORS origin matches frontend URL exactly
 
-**Frontend:**
-- `npm run dev` - Start Vite development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
+**Stream API Error**
+- Verify API keys match in both backend and frontend `.env` files
 
-### Code Style
+**JWT Authentication Error**
+- Confirm JWT_SECRET_KEY is properly set in backend `.env`
 
-This project uses:
-- **ESLint** for JavaScript linting
-- **Prettier** for code formatting (optional)
+**404 on Page Refresh (Vercel)**
+- Ensure `vercel.json` with proper rewrites exists in frontend directory
 
 ---
 
-## � Troubleshooting
+## Contributing
 
-### Common Issues
-
-**1. MongoDB Connection Error:**
-```
-Error: MongooseServerSelectionError: Could not connect to any servers
-```
-**Solution**: Add `0.0.0.0/0` to MongoDB Atlas Network Access whitelist
-
-**2. CORS Error:**
-```
-Access to XMLHttpRequest blocked by CORS policy
-```
-**Solution**: Update backend CORS origin to match your frontend URL
-
-**3. Stream API Error:**
-```
-Error: api_key not valid
-```
-**Solution**: Verify `STREAM_API_KEY` matches between backend and frontend `.env` files
-
-**4. JWT Authentication Error:**
-```
-Error: jwt malformed
-```
-**Solution**: Ensure `JWT_SECRET_KEY` is set and is a strong random string
-
-**5. 404 on Page Refresh (Vercel):**
-**Solution**: Ensure `vercel.json` is present in the frontend directory with proper rewrites
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ---
 
-## 📝 License
+## License
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 👨‍💻 Author
-
-**Astro-Dude**
-- GitHub: [@Astro-Dude](https://github.com/Astro-Dude)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- [Stream](https://getstream.io/) - For providing the real-time chat and video infrastructure
-- [MongoDB](https://www.mongodb.com/) - For the database solution
-- [Vercel](https://vercel.com/) - For frontend hosting
-- [Render](https://render.com/) - For backend hosting
-- [TailwindCSS](https://tailwindcss.com/) - For the styling framework
-
----
-
-## 📸 Screenshots
-
-### Home Page
-![Home Page](https://via.placeholder.com/800x400?text=Add+Your+Screenshot)
-
-### Chat Interface
-![Chat Interface](https://via.placeholder.com/800x400?text=Add+Your+Screenshot)
-
-### Video Call
-![Video Call](https://via.placeholder.com/800x400?text=Add+Your+Screenshot)
-
-### Theme Selector
-![Theme Selector](https://via.placeholder.com/800x400?text=Add+Your+Screenshot)
+- [Stream](https://getstream.io/) - Real-time communication infrastructure
+- [MongoDB](https://www.mongodb.com/) - Database solution
+- [Vercel](https://vercel.com/) & [Render](https://render.com/) - Hosting platforms
+- [TailwindCSS](https://tailwindcss.com/) - Styling framework
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/Astro-Dude">Astro-Dude</a>
+  <strong>Built with ❤️ for seamless communication</strong>
 </p>
 
 <p align="center">
-  <strong>⭐ Star this repository if you find it helpful!</strong>
+  If you find this project helpful, please consider giving it a ⭐
 </p>
