@@ -18,7 +18,7 @@ const __dirname = path.resolve();
 app.use(
   cors({
     origin: process.env.NODE_ENV === "production" 
-      ? "https://streamify-sigma-rust.vercel.app" 
+      ? "https://streamline-puce.vercel.app" 
       : "http://localhost:5173",
     credentials: true, // allow frontend to send cookies
   })
